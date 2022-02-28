@@ -1,0 +1,25 @@
+.coin-list {
+  margin-block-end: 5rem;
+  overflow-x: auto;
+}
+
+td {
+  cursor: pointer;
+}
+
+td > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+td > div img {
+  max-width: 25px;
+  aspect-ratio: 1 / 1;
+}
+
+/* bootstrap override */
+.table-dark {
+  --bs-table-bg: #22272c;
+  --bs-table-striped-bg: #1b1d22;
+}

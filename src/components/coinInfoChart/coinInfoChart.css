@@ -1,0 +1,7 @@
+.coin-info-chart {
+  padding-block: 2rem;
+}
+
+.coin-info-chart canvas {
+  min-height: 500px;
+}

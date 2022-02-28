@@ -1,0 +1,8 @@
+.coin-info {
+  margin-block-start: 2rem;
+  height: calc(100vh - 4rem);
+}
+
+.coin-info .row {
+  height: 100%;
+}

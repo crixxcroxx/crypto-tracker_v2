@@ -1,0 +1,24 @@
+.coin-info-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 2rem 1rem;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .coin-info-aside {
+    border-right: 5px solid #2b2e32;
+  }
+}
+
+.coin-info-aside > img,
+h3 {
+  margin-inline: auto;
+}
+
+.coin-info-aside img {
+  max-width: 150px;
+  aspect-ratio: 1 / 1;
+}

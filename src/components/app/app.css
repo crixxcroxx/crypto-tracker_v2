@@ -1,0 +1,5 @@
+.app {
+  width: min(85vw, 75rem);
+  margin-inline: auto;
+  margin-block-start: 3.6rem;
+}

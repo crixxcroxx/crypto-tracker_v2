@@ -1,0 +1,26 @@
+.banner {
+  padding-block: 5rem;
+  background-image: url("https://source.unsplash.com/Bq7nHY4trGA");
+  background-position: center;
+  background-size: cover;
+}
+
+.crypto-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.crypto-thumb img {
+  max-width: 50px;
+  aspect-ratio: 1 / 1;
+}
+
+.crypto-thumb_desc {
+  text-align: center;
+}
+
+.crypto-thumb_desc > small {
+  font-size: small;
+}

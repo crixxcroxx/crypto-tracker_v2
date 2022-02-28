@@ -1,0 +1,48 @@
+.btn-login.btn {
+  color: #a1a1a1;
+}
+
+.modal-content {
+  background-color: #14161a;
+}
+
+.modal-header {
+  color: #ffd700;
+}
+
+.login-form {
+  margin-block-start: 2rem;
+}
+
+.form-label {
+  color: #a1a1a1;
+}
+
+.nav-tabs {
+  flex-direction: row;
+  border-bottom: 1px solid #ffd700;
+}
+
+.nav-tabs .nav-link.active {
+  color: #14161a;
+  border: 1px solid #ffd700;
+  background-color: #ffd700;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #14161a;
+  border: 1px solid #ffee90;
+  background-color: #ffee90;
+}
+
+.nav-item {
+  padding-inline: 0.25rem;
+}
+
+.nav-item button {
+  color: #ffd700;
+}
+
+.nav-item button:hover {
+  color: #ffee90;
+}
