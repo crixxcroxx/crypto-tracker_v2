@@ -45,3 +45,14 @@ a:hover {
   border: 1px solid #ffee90;
   background-color: #ffee90;
 }
+
+.btn-outline-primary {
+  color: #ffd700;
+  border: 1px solid #ffd700;
+}
+
+.btn-outline-primary:hover {
+  color: #14161a;
+  border: 1px solid #ffd700;
+  background-color: #ffd700;
+}

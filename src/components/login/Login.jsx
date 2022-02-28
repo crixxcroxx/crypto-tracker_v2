@@ -81,12 +81,13 @@ const Login = () => {
                   Submit
                 </Button>
                 <Button
-                  variant="primary"
+                  variant="outline-primary"
                   type="submit"
                   className="float-end"
                   onClick={handleGoogleSignin}
                 >
-                  Signin with Google
+                  <i class="fa fa-google" aria-hidden="true"></i>&nbsp; Signin
+                  with Google
                 </Button>
               </Form>
             </Tab>
