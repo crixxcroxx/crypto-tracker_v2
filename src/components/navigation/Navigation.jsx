@@ -83,7 +83,7 @@ const Navigation = ({ setSearch }) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <WatchList show={show} handleClose={handleClose} />
+      {user && <WatchList show={show} handleClose={handleClose} />}
     </>
   );
 };

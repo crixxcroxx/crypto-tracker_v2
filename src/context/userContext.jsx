@@ -34,13 +34,13 @@ export const UserAuthProvider = ({ children }) => {
   };
 
   const handleAdd = async (name, price) => {
-    const collectionRef = collection(db, "coinWatchList");
+    const collectionRef = collection(db, `${user.uid}`);
     const payload = { name, price };
     await addDoc(collectionRef, payload);
   };
 
   const handleDelete = async (id) => {
-    const docRef = doc(db, "coinWatchList", id);
+    const docRef = doc(db, `${user.uid}`, id);
     await deleteDoc(docRef);
   };
 

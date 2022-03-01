@@ -14,7 +14,7 @@ const CoinInfoAside = ({ coinInfo }) => {
 
   useEffect(
     () =>
-      onSnapshot(collection(db, "coinWatchList"), (snapshot) => {
+      onSnapshot(collection(db, `${user.uid}`), (snapshot) => {
         setCoins(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       }),
     []
@@ -53,19 +53,21 @@ const CoinInfoAside = ({ coinInfo }) => {
               Remove from Watch List
             </Button>
           )) ||
-            (user && coins.find((coin) => coin.name !== coinInfo.name) && (
-              <Button
-                variant="primary"
-                onClick={() =>
-                  handleAdd(
-                    coinInfo.name,
-                    coinInfo.market_data.current_price.usd
-                  )
-                }
-              >
-                Add to Watch List
-              </Button>
-            ))}
+            (user &&
+              (coins.find((coin) => coin.name !== coinInfo.name) ||
+                coins.length === 0) && (
+                <Button
+                  variant="primary"
+                  onClick={() =>
+                    handleAdd(
+                      coinInfo.name,
+                      coinInfo.market_data.current_price.usd
+                    )
+                  }
+                >
+                  Add to Watch List
+                </Button>
+              ))}
         </>
       )}
     </div>

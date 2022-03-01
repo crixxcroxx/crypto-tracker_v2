@@ -86,8 +86,8 @@ const Login = () => {
                   className="float-end"
                   onClick={handleGoogleSignin}
                 >
-                  <i class="fa fa-google" aria-hidden="true"></i>&nbsp; Signin
-                  with Google
+                  <i className="fa fa-google" aria-hidden="true"></i>&nbsp;
+                  Signin with Google
                 </Button>
               </Form>
             </Tab>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 
 import { Button, Modal, Table } from "react-bootstrap";
 
@@ -10,11 +10,11 @@ import "./watchList.css";
 
 const WatchList = ({ show, handleClose }) => {
   const [coins, setCoins] = useState([]);
-  const { handleDelete } = useUserAuth();
+  const { user, handleDelete } = useUserAuth();
 
   useEffect(
     () =>
-      onSnapshot(collection(db, "coinWatchList"), (snapshot) => {
+      onSnapshot(collection(db, `${user.uid}`), (snapshot) => {
         setCoins(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       }),
     []
@@ -40,7 +40,7 @@ const WatchList = ({ show, handleClose }) => {
               {coins.length > 0 &&
                 coins.map((coin, idx) => (
                   <tr key={coin.id}>
-                    <td>{idx}</td>
+                    <td>{idx + 1}</td>
                     <td>{coin.name}</td>
                     <td>USD {coin.price}</td>
                     <td>
