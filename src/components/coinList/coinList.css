@@ -18,6 +18,10 @@ td > div img {
   aspect-ratio: 1 / 1;
 }
 
+tbody > tr {
+  text-align: center;
+}
+
 /* bootstrap override */
 .table-dark {
   --bs-table-bg: #22272c;

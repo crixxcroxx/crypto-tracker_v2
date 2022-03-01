@@ -31,12 +31,21 @@ const Banner = () => {
   return (
     <div className="banner">
       <Swiper
-        slidesPerView={4}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
+        breakpoints={{
+          640: {
+            width: 640,
+            slidesPerView: 2,
+          },
+          768: {
+            width: 768,
+            slidesPerView: 4,
+          },
+        }}
       >
         {trending.length > 0 &&
           trending.map((coin) => (

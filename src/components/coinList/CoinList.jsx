@@ -29,7 +29,7 @@ const CoinList = ({ search }) => {
     <div className="coin-list">
       <Table striped hover variant="dark">
         <thead>
-          <tr>
+          <tr className="no-wrap">
             <th>Coin</th>
             <th>Price</th>
             <th>24hr Change</th>
@@ -52,12 +52,14 @@ const CoinList = ({ search }) => {
               .map((coin) => (
                 <tr key={coin.id} onClick={() => navigate(`coins/${coin.id}`)}>
                   <td>
-                    <div>
+                    <div className="no-wrap">
                       <img src={coin.image} alt={coin.name} />
                       {coin.name}
                     </div>
                   </td>
-                  <td>USD {toCommaFormat(coin.current_price.toFixed(2))}</td>
+                  <td className="no-wrap">
+                    USD {toCommaFormat(coin.current_price.toFixed(2))}
+                  </td>
                   <td
                     className={
                       coin.price_change_percentage_24h >= 0
@@ -68,7 +70,9 @@ const CoinList = ({ search }) => {
                     {toCommaFormat(coin.price_change_percentage_24h.toFixed(2))}
                     %
                   </td>
-                  <td>USD {toCommaFormat(coin.market_cap)}</td>
+                  <td className="no-wrap">
+                    USD {toCommaFormat(coin.market_cap)}
+                  </td>
                 </tr>
               ))}
         </tbody>

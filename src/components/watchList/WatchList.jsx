@@ -42,8 +42,8 @@ const WatchList = ({ show, handleClose }) => {
                 coins.map((coin, idx) => (
                   <tr key={coin.id}>
                     <td>{idx + 1}</td>
-                    <td>{coin.name}</td>
-                    <td>USD {toCommaFormat(coin.price)}</td>
+                    <td className="no-wrap">{coin.name}</td>
+                    <td className="no-wrap">USD {toCommaFormat(coin.price)}</td>
                     <td>
                       <Button
                         variant="transparent"

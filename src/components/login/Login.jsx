@@ -87,7 +87,7 @@ const Login = () => {
                 <Button
                   variant="outline-primary"
                   type="submit"
-                  className="float-end"
+                  className="float-end google-login"
                   onClick={handleGoogleSignin}
                 >
                   <i className="fa fa-google" aria-hidden="true"></i>&nbsp;

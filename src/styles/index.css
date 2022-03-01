@@ -33,6 +33,12 @@ a:hover {
   color: red !important;
 }
 
+/* utilities */
+.no-wrap {
+  width: max-content;
+  white-space: nowrap;
+}
+
 /* bootstrap override primary button */
 .btn-primary {
   color: #14161a;

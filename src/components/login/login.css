@@ -46,3 +46,26 @@
 .nav-item button:hover {
   color: #ffee90;
 }
+
+.google-login {
+  position: relative;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.google-login::before {
+  content: "";
+  position: absolute;
+  inset: -0.75rem 0 2.95rem 0;
+  background-color: #ffd700;
+}
+
+@media (min-width: 768px) {
+  .google-login {
+    margin-top: 0;
+    width: max-content;
+  }
+  .google-login::before {
+    display: none;
+  }
+}
