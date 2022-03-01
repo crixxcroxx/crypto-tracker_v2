@@ -1,12 +1,14 @@
+import { useEffect, useState } from "react";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../firebase";
-import { Button } from "react-bootstrap";
 import parse from "html-react-parser";
 
+import { Button } from "react-bootstrap";
+
+import { db } from "../../firebase";
 import { useUserAuth } from "../../context/userContext";
+import { toCommaFormat } from "../../utils/toCommaFormat";
 
 import "./coinInfoAside.css";
-import { useEffect, useState } from "react";
 
 const CoinInfoAside = ({ coinInfo }) => {
   const [coins, setCoins] = useState([]);
@@ -14,7 +16,7 @@ const CoinInfoAside = ({ coinInfo }) => {
 
   useEffect(
     () =>
-      onSnapshot(collection(db, `${user.uid}`), (snapshot) => {
+      onSnapshot(collection(db, `${user && user.uid}`), (snapshot) => {
         setCoins(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       }),
     []
@@ -34,11 +36,15 @@ const CoinInfoAside = ({ coinInfo }) => {
             </p>
             <p>
               <strong>Current Price:</strong>{" "}
-              <span>USD {coinInfo.market_data.current_price.usd}</span>
+              <span>
+                USD {toCommaFormat(coinInfo.market_data.current_price.usd)}
+              </span>
             </p>
             <p>
               <strong>Market Cap:</strong>{" "}
-              <span>USD {coinInfo.market_data.market_cap.usd}</span>
+              <span>
+                USD {toCommaFormat(coinInfo.market_data.market_cap.usd)}
+              </span>
             </p>
           </div>
           {(user && coins.find((coin) => coin.name === coinInfo.name) && (

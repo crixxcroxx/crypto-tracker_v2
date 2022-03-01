@@ -5,6 +5,7 @@ import { Button, Modal, Table } from "react-bootstrap";
 
 import { db } from "../../firebase";
 import { useUserAuth } from "../../context/userContext";
+import { toCommaFormat } from "../../utils/toCommaFormat";
 
 import "./watchList.css";
 
@@ -42,7 +43,7 @@ const WatchList = ({ show, handleClose }) => {
                   <tr key={coin.id}>
                     <td>{idx + 1}</td>
                     <td>{coin.name}</td>
-                    <td>USD {coin.price}</td>
+                    <td>USD {toCommaFormat(coin.price)}</td>
                     <td>
                       <Button
                         variant="transparent"

@@ -1,9 +1,11 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import Table from "react-bootstrap/Table";
-import { useNavigate } from "react-router-dom";
+
 import { CryptoList } from "../../config/api/";
+import { toCommaFormat } from "../../utils/toCommaFormat";
 
 import "./coinList.css";
 
@@ -55,15 +57,18 @@ const CoinList = ({ search }) => {
                       {coin.name}
                     </div>
                   </td>
-                  <td>USD {coin.current_price.toFixed(2)}</td>
+                  <td>USD {toCommaFormat(coin.current_price.toFixed(2))}</td>
                   <td
                     className={
-                      coin.price_change_24h >= 0 ? "increase" : "decrease"
+                      coin.price_change_percentage_24h >= 0
+                        ? "increase"
+                        : "decrease"
                     }
                   >
-                    {coin.price_change_24h.toFixed(2)}%
+                    {toCommaFormat(coin.price_change_percentage_24h.toFixed(2))}
+                    %
                   </td>
-                  <td>USD {coin.market_cap}</td>
+                  <td>USD {toCommaFormat(coin.market_cap)}</td>
                 </tr>
               ))}
         </tbody>

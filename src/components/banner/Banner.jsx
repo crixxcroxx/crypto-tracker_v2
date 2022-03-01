@@ -5,6 +5,7 @@ import { Autoplay } from "swiper";
 import axios from "axios";
 
 import { TrendingCoins } from "../../config/api";
+import { toCommaFormat } from "../../utils/toCommaFormat";
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -53,11 +54,16 @@ const Banner = () => {
                       }
                     >
                       {coin.price_change_percentage_24h >= 0 && "+"}
-                      {coin.price_change_percentage_24h.toFixed(2)}%
+                      {toCommaFormat(
+                        coin.price_change_percentage_24h.toFixed(2)
+                      )}
+                      %
                     </span>
                   </small>
                   <br />
-                  <strong>USD {coin.current_price.toFixed(2)} </strong>
+                  <strong>
+                    USD {toCommaFormat(coin.current_price.toFixed(2))}{" "}
+                  </strong>
                 </div>
               </div>
             </SwiperSlide>
