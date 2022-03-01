@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button, Form, Modal, Tab, Tabs } from "react-bootstrap";
+import { Alert, Button, Form, Modal, Tab, Tabs } from "react-bootstrap";
 
 import Signup from "../signup/Signup";
 
@@ -12,6 +12,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState("");
 
   const { googleSignIn, login } = useUserAuth();
 
@@ -34,7 +35,7 @@ const Login = () => {
     try {
       await login(email, password);
     } catch (error) {
-      console.log(error);
+      setIsError(error.message);
     }
   };
 
@@ -54,9 +55,11 @@ const Login = () => {
           <Tabs defaultActiveKey="login">
             <Tab eventKey="login" title="Login ">
               <Form className="login-form" onSubmit={handleSubmit}>
+                {isError && <Alert variant="danger">{isError}</Alert>}
                 <Form.Group controlId="loginEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
+                    required
                     type="email"
                     placeholder="Enter email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -66,6 +69,7 @@ const Login = () => {
                 <Form.Group controlId="loginPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
+                    required
                     type="password"
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
@@ -77,7 +81,7 @@ const Login = () => {
                   Cancel
                 </Button>
                 &nbsp;
-                <Button variant="primary" type="submit" onClick={handleClose}>
+                <Button variant="primary" type="submit">
                   Submit
                 </Button>
                 <Button

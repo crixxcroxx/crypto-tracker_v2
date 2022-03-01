@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
 
 import { useUserAuth } from "../../context/userContext";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState("");
 
   const { signup } = useUserAuth();
 
@@ -15,16 +16,18 @@ const Signup = () => {
     try {
       await signup(email, password);
     } catch (error) {
-      console.log(error);
+      setIsError(error.message);
     }
   };
 
   return (
     <Form className="signup-form" onSubmit={handleSubmit}>
+      {isError && <Alert variant="danger">{isError}</Alert>}
       &nbsp;
       <Form.Group controlId="signupEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
+          required
           type="email"
           placeholder="Enter email"
           onChange={(e) => setEmail(e.target.value)}
@@ -34,6 +37,7 @@ const Signup = () => {
       <Form.Group controlId="signupPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
+          required
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
